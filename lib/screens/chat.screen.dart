@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/models/chatData.dart';
+import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
 import 'package:soundconverge/theme/colors.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
 
@@ -58,7 +59,7 @@ class _ChatUIState extends State<ChatUI> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      drawer: Drawer(),
+      drawer: Hamburger(),
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -70,6 +71,8 @@ class _ChatUIState extends State<ChatUI> {
             ),
             SizedBox(),
             CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://variety.com/wp-content/uploads/2015/07/naruto_movie-lionsgate.jpg?w=681&h=383&crop=1'),
               backgroundColor: white,
             ),
           ],
@@ -86,6 +89,7 @@ class _ChatUIState extends State<ChatUI> {
                 children: [
                   SizedBox(height: 20),
                   botChatList(size, _chatData),
+                  SizedBox(height: 5),
                 ],
               ),
             )),
@@ -103,6 +107,7 @@ class _ChatUIState extends State<ChatUI> {
                             borderRadius: BorderRadius.circular(35),
                           ),
                           child: TextField(
+                            style: TextStyle(color: white),
                             onTap: () => reqFocus(),
                             focusNode: _focusNode,
                             controller: _controller,
