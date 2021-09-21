@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:soundconverge/models/chat.model.dart';
-import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/theme/colors.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
 
@@ -44,16 +42,24 @@ class _ChatUIState extends State<ChatUI> {
       body: Container(
         child: Column(
           children: [
-            Expanded(child: botChatList(size)),
+            Expanded(
+                child: SingleChildScrollView(
+              physics: ScrollPhysics(),
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  botChatList(size),
+                ],
+              ),
+            )),
             Container(
               alignment: Alignment.bottomCenter,
-              color: primaryColor,
-              height: 66,
+              height: 60,
               child: Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(10),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: white.withAlpha(100),
+                      color: primaryColor.withAlpha(140),
                       borderRadius: BorderRadius.circular(35),
                     ),
                     child: TextField(
