@@ -13,8 +13,8 @@ class BotChat {
 
   BotChat(
       {this.message = '',
-      this.rid = '',
-      this.sid = '',
+      this.rid = 'bid',
+      this.sid = 'usr',
       this.coverImgUrl = '',
       this.spotifyUrl = '',
       this.appleMusicUrl = '',
