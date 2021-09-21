@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 
 class BotChat {
-  final String? message;
-  final String? sid;
-  final String? rid;
+  final String message;
+  final String sid;
+  final String rid;
+  final String spotifyUrl;
+  final String gaanaUrl;
+  final String wynkUrl;
+  final String appleMusicUrl;
+  final String ytMusicUrl;
+  final String coverImgUrl;
 
-  BotChat({
-    @required this.message,
-    @required this.rid,
-    @required this.sid
-  });
+  BotChat(
+      {this.message = '',
+      this.rid = '',
+      this.sid = '',
+      this.coverImgUrl = '',
+      this.spotifyUrl = '',
+      this.appleMusicUrl = '',
+      this.gaanaUrl = '',
+      this.wynkUrl = '',
+      this.ytMusicUrl = ''});
 }
