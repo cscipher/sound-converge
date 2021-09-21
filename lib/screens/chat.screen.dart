@@ -140,6 +140,7 @@ class _ChatUIState extends State<ChatUI> {
                                   _chatData.add(BotChat(message: umsg));
                                   _controller.clear();
                                 });
+                                scrollToBottom();
                               },
                       ),
                     ],
