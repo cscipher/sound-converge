@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
-import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/buttons.dart';
 import 'package:soundconverge/theme/colors.dart';
 
@@ -8,12 +7,12 @@ bool usrSending(entry) => entry.sid == 'usr';
 bool urlExists(String url) => url != null && url.isNotEmpty;
 MusicButtons _mb = MusicButtons();
 
-Widget botChatList(size) => ListView.builder(
+Widget botChatList(size, data) => ListView.builder(
       physics: NeverScrollableScrollPhysics(),
-      itemCount: chatdata.length,
+      itemCount: data.length,
       shrinkWrap: true,
       itemBuilder: (ctx, i) {
-        BotChat entry = chatdata[i];
+        BotChat entry = data[i];
         return Align(
           alignment: usrSending(entry) ? Alignment.topRight : Alignment.topLeft,
           child: Container(
