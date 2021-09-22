@@ -65,10 +65,7 @@ class _ChatUIState extends State<ChatUI> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             SizedBox(),
-            Text(
-              'Zedd - You\'e music finder!',
-              style: TextStyle(fontSize: 16),
-            ),
+            Text('Zedd - You\'e music finder!'),
             SizedBox(),
             CircleAvatar(
               backgroundImage: NetworkImage(
@@ -128,10 +125,10 @@ class _ChatUIState extends State<ChatUI> {
                               removeFocus();
                             },
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(fontSize: 13, color: white),
+                              hintStyle: TextStyle(color: white),
                               hintText: 'Search any song',
                               border: InputBorder.none,
-                              contentPadding: EdgeInsets.all(20),
+                              contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 10),
                             ),
                           ),
                         ),

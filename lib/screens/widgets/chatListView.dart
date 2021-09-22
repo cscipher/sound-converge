@@ -28,13 +28,14 @@ Widget botChatList(size, data) => ListView.builder(
                     image: NetworkImage(entry.coverImgUrl))),
             constraints: BoxConstraints(maxWidth: size.width * 0.70),
             margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
-            padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 15),
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   entry.message,
                   style: TextStyle(
+                      fontSize: 16,
                       color:
                           urlExists(entry.coverImgUrl) ? white : Colors.black),
                 ),
