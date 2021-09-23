@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
+import 'package:soundconverge/services/bot.service.dart';
 import 'package:soundconverge/theme/colors.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
 import 'package:soundconverge/theme/themes.dart';
@@ -131,7 +132,6 @@ class _ChatUIState extends State<ChatUI> {
                                   color: theme.textTheme.headline1!.color!
                                       .withAlpha(130)),
                               hintText: 'Search any song',
-                              // border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide(
@@ -149,9 +149,10 @@ class _ChatUIState extends State<ChatUI> {
                         icon: Icon(Icons.send, color: theme.primaryColor),
                         onPressed: _controller.text.isEmpty
                             ? null
-                            : () {
+                            : () async {
+                                BotChat resp = await querySong(umsg);
                                 setState(() {
-                                  _chatData.add(BotChat(message: umsg));
+                                  _chatData.add(resp);
                                   _controller.clear();
                                 });
                                 scrollToBottom();

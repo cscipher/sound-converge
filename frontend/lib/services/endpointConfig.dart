@@ -7,13 +7,13 @@ class FlavorValues {
   FlavorValues({required this.baseUrl, required this.endpoints});
 }
 
-enum Endpoint { querySong }
+enum Endpoint { querySong } // add endpoint
 
 enum Request { get, post }
 
 final FlavorValues config = FlavorValues(
-    baseUrl: 'localhost:8080',
-    endpoints: {Endpoint.querySong: '/api/querySong'});
+    baseUrl: 'localhost:8080', // base service url
+    endpoints: {Endpoint.querySong: '/api/querySong'}); // update endpoints with urls
 
 String finalUrl(Endpoint ep) {
   final url = '${config.baseUrl}${config.endpoints[ep]}';

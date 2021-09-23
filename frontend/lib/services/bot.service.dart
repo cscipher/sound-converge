@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/services/endpointConfig.dart';
 
