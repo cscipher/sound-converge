@@ -45,7 +45,10 @@ class MusicButtons {
       label: 'Music');
 
   Widget gaanaBtn(onPressed) => _platformBtn(
-      onPressed: onPressed, color: white, bg: gaanaDefault, label: 'Gaana');
+      onPressed: onPressed,
+      color: Colors.white,
+      bg: gaanaDefault,
+      label: 'Gaana');
 
   Widget wynkBtn(onPressed) => _platformBtn(
       onPressed: onPressed,
@@ -67,13 +70,15 @@ class MusicButtons {
               children: [
                 FaIcon(
                   FontAwesomeIcons.apple,
-                  color: white,
+                  color: Colors.white,
                 ),
                 SizedBox(width: 5),
                 Text(
                   'Music',
                   style: TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w600, color: white),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
                 )
               ],
             ),

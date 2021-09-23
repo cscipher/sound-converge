@@ -4,6 +4,7 @@ import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
 import 'package:soundconverge/theme/colors.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
+import 'package:soundconverge/theme/themes.dart';
 
 class ChatUI extends StatefulWidget {
   const ChatUI({Key? key}) : super(key: key);
@@ -36,16 +37,18 @@ class _ChatUIState extends State<ChatUI> {
   // init fn
   @override
   void initState() {
+    super.initState();
     _scrollController = ScrollController();
     scrollToBottom();
     _controller = TextEditingController();
     _focusNode = FocusNode();
     _focusNode.addListener(() {});
-
+    currentTheme.addListener(() {
+      setState(() {});
+    });
     setState(() {
       _chatData = chatdata;
     });
-    super.initState();
   }
 
   @override
@@ -56,24 +59,22 @@ class _ChatUIState extends State<ChatUI> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       drawer: Hamburger(),
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(),
-            Text('Zedd - You\'e music finder!'),
-            SizedBox(),
-            CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://variety.com/wp-content/uploads/2015/07/naruto_movie-lionsgate.jpg?w=681&h=383&crop=1'),
-              backgroundColor: white,
-            ),
-          ],
-        ),
+        backgroundColor: theme.primaryColor,
+        centerTitle: true,
+        title: Text('Zedd - You\'e music finder!',
+            style: TextStyle(color: theme.textTheme.headline1!.color)),
+        actions: [
+          IconButton(
+              onPressed: () => currentTheme.toggleTheme(),
+              icon: Icon(Icons.brightness_4_outlined,
+                  color: theme.textTheme.headline1!.color))
+        ],
       ),
       body: Container(
         child: Column(
@@ -85,7 +86,7 @@ class _ChatUIState extends State<ChatUI> {
               child: Column(
                 children: [
                   SizedBox(height: 20),
-                  botChatList(size, _chatData),
+                  botChatList(size, _chatData, theme),
                   SizedBox(height: 5),
                 ],
               ),
@@ -100,11 +101,12 @@ class _ChatUIState extends State<ChatUI> {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: primaryColor.withAlpha(140),
+                            // color: primaryColor.withAlpha(140),
                             borderRadius: BorderRadius.circular(35),
                           ),
                           child: TextField(
-                            style: TextStyle(color: white),
+                            style: TextStyle(
+                                color: theme.textTheme.headline1!.color),
                             onTap: () => reqFocus(),
                             focusNode: _focusNode,
                             controller: _controller,
@@ -125,16 +127,26 @@ class _ChatUIState extends State<ChatUI> {
                               removeFocus();
                             },
                             decoration: InputDecoration(
-                              hintStyle: TextStyle(color: white),
+                              hintStyle: TextStyle(
+                                  color: theme.textTheme.headline1!.color!
+                                      .withAlpha(130)),
                               hintText: 'Search any song',
-                              border: InputBorder.none,
+                              // border: InputBorder.none,
+                              focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.withAlpha(100))),
+                              enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide(
+                                      color: Colors.grey.withAlpha(100))),
                               contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 10),
                             ),
                           ),
                         ),
                       ),
                       IconButton(
-                        icon: Icon(Icons.send, color: primaryColor),
+                        icon: Icon(Icons.send, color: theme.primaryColor),
                         onPressed: _controller.text.isEmpty
                             ? null
                             : () {
