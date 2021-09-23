@@ -1,18 +1,19 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class BotChat {
   final String message;
-  final String sid;
-  final String rid;
-  final String spotifyUrl;
-  final String gaanaUrl;
-  final String wynkUrl;
-  final String appleMusicUrl;
-  final String ytMusicUrl;
-  final String coverImgUrl;
+  String sid;
+  String rid;
+  String spotifyUrl;
+  String gaanaUrl;
+  String wynkUrl;
+  String appleMusicUrl;
+  String ytMusicUrl;
+  String coverImgUrl;
 
   BotChat(
-      {this.message = '',
+      {required this.message,
       this.rid = 'bid',
       this.sid = 'usr',
       this.coverImgUrl = '',
@@ -21,4 +22,8 @@ class BotChat {
       this.gaanaUrl = '',
       this.wynkUrl = '',
       this.ytMusicUrl = ''});
+
+  factory BotChat.fromJson(Map<String, dynamic> json) {
+    return BotChat(message: json['message']);
+  }
 }
