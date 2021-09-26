@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "assistantzedd-qjxl",
+  "private_key_id": "bbbfbb924d88bd265acbadaac719b26571971ad7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCu7dMJ2Maydd8M\nkbJk38xvDIio8ZjP2Qoeu4UFUlJMwBCI1UvGyGpT9kAvt0zvkVRvrRRmVNbiB5Ic\nAEGePjiFvTxg5uJ/YMc1N+egsqyfG9UhfV+8NKcA3WuFA3jiOSxZev71oCtzM7Q8\nMWV++TTDoYVOPZF/j7NG/oGeaec9XV7YVgzQP5wc5SifZd3KydcDVK50vu5Od72L\nskWoBM0XLp3hSeA80Nz2XD4sINDUTgfc1rYqcYh0fuiEiO1rL23Wd2EBGCF7OJn7\nDiP4xQjsPnh/ssMi/7Z3vDOuo12sHFllu2ZziluhPJ8B55RGA3Ybjup0/PxRCn+6\nyVnVYx1BAgMBAAECggEAGzRBLbbYr8hE999wrt9fG6YHWr631Rsbx8vB1CIJSoZU\nC/Of5Tolzwjs0n7fKCKhzvxLv95RzLUAs/oWOlXS1Hmpeiht8QFL+arICuW+kr/x\nVVP6H3rQvgGxRu5TTls12nSWUfymxTO1Q+cqsaRv4DyuToykpAHlD5Vk8w3lOFWa\n4w56AQ4ToH+imSgctAiBmndIPoxSMaoOeofxb5YqgrdPcYLwHJKprEHRSwN/7gOA\nPkL3yEiSHRofwhKrYWysqi86sQaZ/VkQwXGdP0oNmDo33IuTHQ9ejzlUo9XzFpNO\n9AmvpXw+raZuJy2lCkKIKwV//JYnwb3kzfP38kCnQQKBgQDntLeHIYIQRhiSzpaf\nary2vwgTljqeF/dVUKlr/ItAK63vWdl+rfbW1fIBmGXzvyAOwHNxnM3mYAUaURcF\nXnHGon2iq/83cas1pbp12z4dcg0SRLVcqrPRmiBemkJamuIo4cQt8LvacNHngrAH\nbzn8hzv2yQVAVpJRmIcLKxoQvwKBgQDBRSRsYCuLeRQK8eWaGf4dYQL9/PICTEwo\nniN51RRsi87+ryppm6Rqn+zpEJhtuQ/gJlqtKY+t/nd5GNwRV0n1ZemLsErffTfW\nmzH0bBzmmPEYfzlKHwQRG7PZK2wXP69mldVetfL4s7Rd79matNatFPxFM6Zx1Vqt\noqQ4AOBR/wKBgQCtvc7YXwHeHhGTE6HSDAFRrtDpjv6JSUNHD+LafFYWWipkjaUO\n3nd3BJohJBteuHPbW+e0y3WBR4LMBv4SIo2B+pnmfr4y3uMYqRq2AR4Eil7O0gKE\nZ+PKSZ34EgerVPQ8331xTVAvLeXXiSFhkb+TYfxOwtFTOxcgZBTvBPTYlQKBgHMp\niwGU8H2EISBAcWq4sEW7R7gmX+JkqkDNsh/niur/B9GUeLZDCt6J+vYJcHp4+m+7\nCu8Bw96OsYwT9xXSKHy0REx7OLIhAAO9qC+XuETjv020iWOURa0YD7uI9ziHNzHu\neByeWHA/TGto/wYDWaP6zDNECprr4cNzFV1VkFTrAoGBALyQI0Dnvc6oyeEbSCU3\njWyvAlI7OqFhmGRoxOcmkNdYXoy4HsEPWqhTr2tyW0VBLEo20ZJXNEbjZLu8mmho\nFfKai7/xs2Myvm31SLY/jTXuTTjQnbVmKjQIpCbP8Vjv2KVcFBKo18I5YAGh15bC\nxzg4D+i3BEWPzqrzw35zxJxm\n-----END PRIVATE KEY-----\n",
+  "client_email": "soundconverge@assistantzedd-qjxl.iam.gserviceaccount.com",
+  "client_id": "110956641681659809799",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/soundconverge%40assistantzedd-qjxl.iam.gserviceaccount.com"
+}
