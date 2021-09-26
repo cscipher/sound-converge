@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-final Color lightPrimaryColor = Color(0xff3CD3AD);
-final Color darkPrimaryColor = Color(0xff3CD3AD);
-final Color lightBgColor = Colors.white;
-final Color darkBgColor = Colors.black87;
-final Color lightAccent = Color(0xff3CD3AD).withOpacity(0.3);
-final Color darkAccent = Color(0xff3CD3AD).withOpacity(0.7);
+final Color lightPrimaryColor = Color(0xffFF3366);
+final Color darkPrimaryColor = Color(0xffFF3366);
+final Color lightBgColor = Color(0xffF6F7F8);
+final Color darkBgColor = Color(0xff011627);
+final Color lightAccent = lightPrimaryColor.withOpacity(0.3);
+final Color darkAccent = darkPrimaryColor.withOpacity(0.7);
 final Color spotifyDefault = Color(0xFF1DB954);
 
 final LinearGradient lg = LinearGradient(

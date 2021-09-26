@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
-import 'package:soundconverge/services/bot.service.dart';
-import 'package:soundconverge/theme/colors.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
 import 'package:soundconverge/theme/themes.dart';
 
@@ -62,19 +60,32 @@ class _ChatUIState extends State<ChatUI> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
+    var _icon = Icons.wb_sunny;
 
     return Scaffold(
+      backgroundColor: theme.backgroundColor,
       drawer: Hamburger(),
       appBar: AppBar(
-        backgroundColor: theme.primaryColor,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         centerTitle: true,
         title: Text('Zedd - You\'e music finder!',
             style: TextStyle(color: theme.textTheme.headline1!.color)),
         actions: [
+          // onPressed: () => currentTheme.toggleTheme(),
           IconButton(
-              onPressed: () => currentTheme.toggleTheme(),
-              icon: Icon(Icons.brightness_4_outlined,
-                  color: theme.textTheme.headline1!.color))
+              onPressed: () {
+                setState(() {
+                  _icon == Icons.wb_sunny
+                      ? _icon = Icons.mode_night
+                      : _icon = Icons.wb_sunny;
+                });
+                currentTheme.toggleTheme();
+              },
+              icon: Icon(
+                _icon,
+                color: theme.textTheme.headline1!.color,
+              ))
         ],
       ),
       body: Container(
@@ -102,10 +113,11 @@ class _ChatUIState extends State<ChatUI> {
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
-                            // color: primaryColor.withAlpha(140),
+                            color: Colors.grey.withAlpha(30),
                             borderRadius: BorderRadius.circular(35),
                           ),
                           child: TextField(
+                            cursorColor: theme.primaryColor,
                             style: TextStyle(
                                 color: theme.textTheme.headline1!.color),
                             onTap: () => reqFocus(),
@@ -135,11 +147,11 @@ class _ChatUIState extends State<ChatUI> {
                               focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide(
-                                      color: Colors.grey.withAlpha(100))),
+                                      color: Colors.grey.withAlpha(80))),
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(30),
                                   borderSide: BorderSide(
-                                      color: Colors.grey.withAlpha(100))),
+                                      color: Colors.grey.withAlpha(80))),
                               contentPadding: EdgeInsets.fromLTRB(20, 0, 0, 10),
                             ),
                           ),
@@ -150,9 +162,9 @@ class _ChatUIState extends State<ChatUI> {
                         onPressed: _controller.text.isEmpty
                             ? null
                             : () async {
-                                BotChat resp = await querySong(umsg);
+                                // BotChat resp = await querySong(umsg);
                                 setState(() {
-                                  _chatData.add(resp);
+                                  _chatData.add(BotChat(message: umsg));
                                   _controller.clear();
                                 });
                                 scrollToBottom();

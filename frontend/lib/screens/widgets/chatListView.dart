@@ -4,7 +4,7 @@ import 'package:soundconverge/screens/widgets/buttons.dart';
 import 'package:soundconverge/theme/colors.dart';
 
 bool usrSending(entry) => entry.sid == 'usr';
-bool urlExists(String url) => url != null && url.isNotEmpty;
+bool urlExists(String? url) => url != null && url.isNotEmpty;
 MusicButtons _mb = MusicButtons();
 
 Widget botChatList(size, data, theme) => ListView.builder(
@@ -31,13 +31,15 @@ Widget botChatList(size, data, theme) => ListView.builder(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: usrSending(entry)
-                      ? theme.accentColor.withAlpha(180)
-                      : theme.accentColor.withAlpha(50),
+                      ? theme.primaryColor
+                      : theme.primaryColor.withAlpha(50),
                   image: DecorationImage(
                       colorFilter: ColorFilter.mode(
                           Colors.black.withOpacity(0.7), BlendMode.darken),
                       fit: BoxFit.cover,
-                      image: NetworkImage(entry.coverImgUrl))),
+                      image: NetworkImage(urlExists(entry.coverImgUrl)
+                          ? entry.coverImgUrl!
+                          : ''))),
               constraints: BoxConstraints(maxWidth: size.width * 0.6),
               margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 5),

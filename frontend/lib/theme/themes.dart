@@ -16,10 +16,10 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get lightTheme {
     return ThemeData(
         textTheme: TextTheme(
-          headline1: TextStyle(color: Colors.black),
-          headline2: TextStyle(color: Colors.black),
-          bodyText1: TextStyle(color: Colors.black),
-          bodyText2: TextStyle(color: Colors.black),
+          headline1: TextStyle(color: darkBgColor),
+          headline2: TextStyle(color: darkBgColor),
+          bodyText1: TextStyle(color: darkBgColor),
+          bodyText2: TextStyle(color: darkBgColor),
         ),
         primaryColor: lightPrimaryColor,
         backgroundColor: lightBgColor,
@@ -30,10 +30,10 @@ class CustomTheme with ChangeNotifier {
   static ThemeData get darkTheme {
     return ThemeData(
         textTheme: TextTheme(
-          headline1: TextStyle(color: Colors.white),
-          headline2: TextStyle(color: Colors.white),
-          bodyText1: TextStyle(color: Colors.white),
-          bodyText2: TextStyle(color: Colors.white),
+          headline1: TextStyle(color: lightBgColor),
+          headline2: TextStyle(color: lightBgColor),
+          bodyText1: TextStyle(color: lightBgColor),
+          bodyText2: TextStyle(color: lightBgColor),
         ),
         primaryColor: darkPrimaryColor,
         backgroundColor: darkBgColor,
