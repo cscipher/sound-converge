@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:soundconverge/screens/chat.screen.dart';
+import 'package:soundconverge/screens/splash.dart';
 import 'package:soundconverge/theme/themes.dart';
 
 void main() async {
@@ -31,6 +31,6 @@ class _MyAppState extends State<MyApp> {
         darkTheme: CustomTheme.darkTheme,
         themeMode: currentTheme.currTheme,
         title: 'Material App',
-        home: ChatUI());
+        home: SplashScreen());
   }
 }
