@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/screens/widgets/buttons.dart';
-import 'package:soundconverge/theme/colors.dart';
 
 bool usrSending(entry) => entry.sid == 'usr';
 bool urlExists(String? url) => url != null && url.isNotEmpty;
@@ -21,10 +20,10 @@ Widget botChatList(size, data, theme) => ListView.builder(
           children: [
             if (!usrSending(entry))
               Padding(
-                padding: const EdgeInsets.only(left: 5),
+                padding: const EdgeInsets.only(left: 5, top: 7),
                 child: CircleAvatar(
                   backgroundImage: AssetImage('assets/images/bot.png'),
-                  // backgroundColor: white,
+                  radius: 15,
                 ),
               ),
             Container(
@@ -50,7 +49,7 @@ Widget botChatList(size, data, theme) => ListView.builder(
                     entry.message,
                     style: TextStyle(
                         fontSize: 16,
-                        color: urlExists(entry.coverImgUrl)
+                        color: urlExists(entry.coverImgUrl) || usrSending(entry)
                             ? Colors.white
                             : theme.textTheme.headline1.color),
                   ),

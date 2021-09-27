@@ -15,6 +15,7 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get lightTheme {
     return ThemeData(
+        iconTheme: IconThemeData(color: darkBgColor),
         textTheme: TextTheme(
           headline1: TextStyle(color: darkBgColor),
           headline2: TextStyle(color: darkBgColor),
@@ -29,6 +30,7 @@ class CustomTheme with ChangeNotifier {
 
   static ThemeData get darkTheme {
     return ThemeData(
+        iconTheme: IconThemeData(color: lightBgColor),
         textTheme: TextTheme(
           headline1: TextStyle(color: lightBgColor),
           headline2: TextStyle(color: lightBgColor),
