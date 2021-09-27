@@ -22,6 +22,6 @@ class BotChat {
   });
 
   factory BotChat.fromJson(Map<String, dynamic> json) {
-    return BotChat(message: json['message']);
+    return BotChat(message: json['message'], rid: 'usr', sid: 'bid');
   }
 }

@@ -1,8 +1,10 @@
+import 'package:day_night_switcher/day_night_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:soundconverge/models/chat.model.dart';
 import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
+import 'package:soundconverge/services/bot.service.dart';
 import 'package:soundconverge/theme/themes.dart';
 
 class ChatUI extends StatefulWidget {
@@ -19,18 +21,48 @@ class _ChatUIState extends State<ChatUI> {
   late FocusNode _focusNode;
   late ScrollController _scrollController;
   String umsg = '';
+  var _icon = Icons.mode_night;
 
   void reqFocus() => FocusScope.of(context).requestFocus(_focusNode);
   void removeFocus() => FocusScope.of(context).unfocus();
+
   scrollToBottom() {
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       final bottomOffset = _scrollController.position.maxScrollExtent;
       _scrollController.animateTo(
         bottomOffset,
-        duration: Duration(milliseconds: 300),
+        duration: Duration(milliseconds: 150),
         curve: Curves.easeInOut,
       );
     });
+  }
+
+  showSnackBar(String msg) =>
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
+
+  _convo() async {
+    setState(() {
+      _chatData.add(BotChat(message: umsg));
+      _controller.clear();
+    });
+    scrollToBottom();
+    try {
+      BotChat resp = await querySong(umsg);
+      setState(() {
+        _chatData.add(resp);
+      });
+    } on Exception catch (e) {
+      // showSnackBar(e.toString());
+      final errTxt = BotChat(
+          message:
+              'Something went wrong. Please check your internet connection or try again later! 🤖',
+          sid: 'bid',
+          rid: 'usr');
+      setState(() {
+        _chatData.add(errTxt);
+      });
+    }
+    scrollToBottom();
   }
 
   // init fn
@@ -60,12 +92,12 @@ class _ChatUIState extends State<ChatUI> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
-    var _icon = Icons.wb_sunny;
 
     return Scaffold(
       backgroundColor: theme.backgroundColor,
       drawer: Hamburger(),
       appBar: AppBar(
+        iconTheme: theme.iconTheme,
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
@@ -74,18 +106,16 @@ class _ChatUIState extends State<ChatUI> {
         actions: [
           // onPressed: () => currentTheme.toggleTheme(),
           IconButton(
+              tooltip: 'Theme switch',
               onPressed: () {
+                currentTheme.toggleTheme();
                 setState(() {
                   _icon == Icons.wb_sunny
                       ? _icon = Icons.mode_night
                       : _icon = Icons.wb_sunny;
                 });
-                currentTheme.toggleTheme();
               },
-              icon: Icon(
-                _icon,
-                color: theme.textTheme.headline1!.color,
-              ))
+              icon: Icon(_icon))
         ],
       ),
       body: Container(
@@ -159,16 +189,8 @@ class _ChatUIState extends State<ChatUI> {
                       ),
                       IconButton(
                         icon: Icon(Icons.send, color: theme.primaryColor),
-                        onPressed: _controller.text.isEmpty
-                            ? null
-                            : () async {
-                                // BotChat resp = await querySong(umsg);
-                                setState(() {
-                                  _chatData.add(BotChat(message: umsg));
-                                  _controller.clear();
-                                });
-                                scrollToBottom();
-                              },
+                        onPressed:
+                            _controller.text.isEmpty ? null : () => _convo(),
                       ),
                     ],
                   )),

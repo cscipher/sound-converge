@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 
 class FlavorValues {
@@ -7,13 +9,17 @@ class FlavorValues {
   FlavorValues({required this.baseUrl, required this.endpoints});
 }
 
-enum Endpoint { querySong } // add endpoint
+enum Endpoint { querySong, hmoe } // add endpoint
 
 enum Request { get, post }
 
 final FlavorValues config = FlavorValues(
-    baseUrl: 'localhost:8080', // base service url
-    endpoints: {Endpoint.querySong: '/api/querySong'}); // update endpoints with urls
+    baseUrl:
+        'https://shrouded-anchorage-67754.herokuapp.com', // base service url
+    endpoints: {
+      Endpoint.querySong: '/dialogflow/message',
+      Endpoint.hmoe: '/home'
+    }); // update endpoints with urls
 
 String finalUrl(Endpoint ep) {
   final url = '${config.baseUrl}${config.endpoints[ep]}';
@@ -29,7 +35,9 @@ Future httpClient(String url, Request req, {Map<String, dynamic>? body}) async {
       : response = await http.post(k, body: body);
 
   if (response.statusCode == 200) {
-    return response.body;
+    var result = response.body;
+    result = json.decode(result);
+    return result;
   } else {
     throw Exception(
         'Failed to fetch response with error code ${response.statusCode}');
