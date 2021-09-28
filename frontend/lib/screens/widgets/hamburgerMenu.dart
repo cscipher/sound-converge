@@ -10,39 +10,41 @@ class Hamburger extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     final theme = Theme.of(context);
     return Drawer(
-      
       child: Container(
         color: theme.backgroundColor,
         child: Column(
           children: [
             SizedBox(height: size.height * 0.22),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: SizedBox(
-                    height: 200,
-                    width: 200,
-                    child: LottieBuilder.network(
-                        'https://assets2.lottiefiles.com/packages/lf20_b8ofyxmg.json'),
-                  ),
-                ),
-                Positioned(
-                  left: 92,
-                  top: 40,
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage: NetworkImage('https://picsum.photos/300'),
-                  ),
-                ),
-              ],
+            // Stack(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.center,
+            //       child: SizedBox(
+            //         height: 200,
+            //         width: 200,
+            //         child: LottieBuilder.network(
+            //             'https://assets2.lottiefiles.com/packages/lf20_b8ofyxmg.json'),
+            //       ),
+            //     ),
+            //     Positioned(
+            //       left: 92,
+            //       top: 40,
+            //       child: CircleAvatar(
+            //         radius: 60,
+            //         backgroundImage: NetworkImage('https://picsum.photos/300'),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            Center(
+              child: Image.asset('assets/images/logo.png'),
             ),
-            SizedBox(height: 10),
-            Text(
-              'Sound Converge',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            SizedBox(height: 10),
+            // SizedBox(height: 10),
+            // Text(
+            //   'Sound Converge',
+            //   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            // ),
+            // SizedBox(height: 10),
             Text(
               'Copyright © Parallel Devs • 2021',
               style: TextStyle(fontSize: 10),

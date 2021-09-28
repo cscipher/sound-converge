@@ -12,7 +12,7 @@ final List<BotChat> chatdata = [
       rid: 'usr',
       appleMusicUrl: 'a',
       coverImgUrl: 'https://picsum.photos/200',
-      wynkUrl: 'a',
+      jioSaavanUrl: 'a',
       ytMusicUrl: 'a'),
   BotChat(message: 'heyaa', sid: 'bot', rid: 'usr'),
   BotChat(message: 'hello', rid: 'bot', sid: 'usr'),
@@ -38,6 +38,6 @@ final List<BotChat> chatdata = [
       appleMusicUrl: 'a',
       coverImgUrl: 'https://picsum.photos/200',
       gaanaUrl: 'a',
-      wynkUrl: 'a',
+      jioSaavanUrl: 'a',
       ytMusicUrl: 'a'),
 ];

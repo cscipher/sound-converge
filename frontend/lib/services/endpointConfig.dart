@@ -9,7 +9,7 @@ class FlavorValues {
   FlavorValues({required this.baseUrl, required this.endpoints});
 }
 
-enum Endpoint { querySong, hmoe } // add endpoint
+enum Endpoint { querySong, home } // add endpoint
 
 enum Request { get, post }
 
@@ -18,7 +18,7 @@ final FlavorValues config = FlavorValues(
         'https://shrouded-anchorage-67754.herokuapp.com', // base service url
     endpoints: {
       Endpoint.querySong: '/dialogflow/message',
-      Endpoint.hmoe: '/home'
+      Endpoint.home: '/home'
     }); // update endpoints with urls
 
 String finalUrl(Endpoint ep) {

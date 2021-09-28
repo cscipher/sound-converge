@@ -4,9 +4,9 @@ class BotChat {
   String rid;
   String? spotifyUrl;
   String? gaanaUrl;
-  String? wynkUrl;
   String? appleMusicUrl;
   String? ytMusicUrl;
+  String? jioSaavanUrl;
   String? coverImgUrl;
 
   BotChat({
@@ -15,13 +15,32 @@ class BotChat {
     this.sid = 'usr',
     this.coverImgUrl,
     this.spotifyUrl,
+    this.jioSaavanUrl,
     this.appleMusicUrl,
     this.gaanaUrl,
-    this.wynkUrl,
     this.ytMusicUrl,
   });
 
   factory BotChat.fromJson(Map<String, dynamic> json) {
-    return BotChat(message: json['message'], rid: 'usr', sid: 'bid');
+    return BotChat(
+      message: json['message'],
+      spotifyUrl: json['spotifyUrl'],
+      jioSaavanUrl: json['jioSaavanUrl'],
+      ytMusicUrl: json['ytMusicUrl'],
+      gaanaUrl: json['gaanaUrl'],
+      rid: 'usr',
+      sid: 'bid',
+    );
   }
 }
+
+
+/**
+ * {
+  "message": "I've found some results...",
+  "spotifyUrl": "....",
+  "jioSaavanUrl": "....",
+  "youtubeMusicUrl": "....",
+  "gaanaUrl": "..."
+}
+ */

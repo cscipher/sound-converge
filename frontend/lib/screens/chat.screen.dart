@@ -5,6 +5,7 @@ import 'package:soundconverge/models/chatData.dart';
 import 'package:soundconverge/screens/widgets/hamburgerMenu.dart';
 import 'package:soundconverge/screens/widgets/chatListView.dart';
 import 'package:soundconverge/services/bot.service.dart';
+import 'package:soundconverge/services/deepLink.dart';
 import 'package:soundconverge/theme/themes.dart';
 
 class ChatUI extends StatefulWidget {
@@ -53,6 +54,7 @@ class _ChatUIState extends State<ChatUI> {
       });
     } on Exception catch (e) {
       // showSnackBar(e.toString());
+      print(e);
       final errTxt = BotChat(
           message:
               'Something went wrong. Please check your internet connection or try again later! 🤖',
@@ -78,7 +80,8 @@ class _ChatUIState extends State<ChatUI> {
       setState(() {});
     });
     setState(() {
-      _chatData = chatdata;
+      _chatData = [];
+      // chatdata;
     });
   }
 
@@ -101,10 +104,9 @@ class _ChatUIState extends State<ChatUI> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: Text('Zedd - You\'e music finder!',
+        title: Text('Zedd - You\'re music finder!',
             style: TextStyle(color: theme.textTheme.headline1!.color)),
         actions: [
-          // onPressed: () => currentTheme.toggleTheme(),
           IconButton(
               tooltip: 'Theme switch',
               onPressed: () {
@@ -188,10 +190,9 @@ class _ChatUIState extends State<ChatUI> {
                         ),
                       ),
                       IconButton(
-                        icon: Icon(Icons.send, color: theme.primaryColor),
-                        onPressed:
-                            _controller.text.isEmpty ? null : () => _convo(),
-                      ),
+                          icon: Icon(Icons.send, color: theme.primaryColor),
+                          onPressed:
+                              _controller.text.isEmpty ? null : () => _convo()),
                     ],
                   )),
             ),

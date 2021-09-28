@@ -31,4 +31,4 @@ final LinearGradient lg1 = LinearGradient(
 
 final Color ytMusicDefault = Color(0xffc3352e);
 final Color gaanaDefault = Colors.orange.shade900;
-final Color wynkDefault = Colors.red;
+final Color jioSaavanDefault = Color(0xFF2A2D36);

@@ -12,7 +12,8 @@ class MusicButtons {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30))),
       );
 
-  Widget _platformBtn({onPressed, color, label, icon, bg = Colors.white}) =>
+  Widget _platformBtn(
+          {onPressed, color, label, icon, bg = Colors.white, ic = null}) =>
       TextButton(
           onPressed: onPressed,
           style: _style(color, bg),
@@ -20,15 +21,20 @@ class MusicButtons {
             mainAxisSize: MainAxisSize.min,
             children: [
               if (icon != null)
-                FaIcon(
-                  icon,
-                  size: 20,
-                ),
+                ic == null
+                    ? FaIcon(
+                        icon,
+                        size: 20,
+                      )
+                    : ic,
               if (icon != null)
                 SizedBox(
                   width: 7,
                 ),
-              Text(label)
+              Text(
+                label,
+                style: TextStyle(fontWeight: FontWeight.w500),
+              )
             ],
           ));
 
@@ -50,11 +56,14 @@ class MusicButtons {
       bg: gaanaDefault,
       label: 'Gaana');
 
-  Widget wynkBtn(onPressed) => _platformBtn(
+  Widget jioSaavanBtn(onPressed) => _platformBtn(
       onPressed: onPressed,
-      color: wynkDefault,
-      icon: FontAwesomeIcons.music,
-      label: 'Wynk');
+      color: jioSaavanDefault,
+      icon: 'temp',
+      ic: Tab(
+          icon: Image.asset('assets/images/jio-saavan.png',
+              height: 30, width: 30)),
+      label: 'Jio Saavn');
 
   Widget appleMusicBtn(onPressed) => InkWell(
         onTap: onPressed,
