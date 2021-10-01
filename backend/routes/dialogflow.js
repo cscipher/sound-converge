@@ -12,11 +12,25 @@ router
     } else {
       await getDialogFlowResponse(req.body.message)
         .then((data) => {
-          res.send(data).status(200);
+          console.log({ data });
+          if (data.queryResult.intent.displayName === "spotify_call") {
+            console.log(JSON.stringify(data.queryResult));
+            const fields = data.queryResult.fulfillmentMessages[1].payload.fields;
+            var apiData = {
+              message: data.queryResult.fulfillmentText,
+              spotifyUrl: fields.spotifyUrl.stringValue,
+              jioSaavanUrl: fields.jioSaavanUrl.stringValue,
+              ytMusicUrl: fields.ytMusicUrl.stringValue,
+              gaanaUrl: fields.gaanaUrl.stringValue,
+            };
+            res.send(apiData).status(200);
+          } else {
+            res.send({ message: data.queryResult.fulfillmentText }).status(200);
+          }
         })
         .catch((error) => {
-          console.log({ yewala: error.message });
-          res.send({ status: 500, message: "Internal Server Error" });
+          console.log({ err: error.message });
+          res.send("Internal Server Error").status(500);
         });
     }
   });

@@ -21,7 +21,6 @@ const getDialogFlowResponse = async (text) => {
   };
   try {
     const responses = await sessionClient.detectIntent(request);
-    console.log({ env: process.env });
     return responses[0];
   } catch (err) {
     console.log({ dialogflowError: err.message });

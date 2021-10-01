@@ -6,14 +6,20 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "axios": "^0.21.4",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dialogflow": "^1.2.0",
     "dotenv": "^10.0.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "jiosavan": "^1.0.4",
     "morgan": "~1.9.1",
+    "node-youtube-music": "^0.4.0",
     "pug": "2.0.0-beta11",
-    "uuid": "^8.3.2"
+    "spotify-web-api-node": "^5.0.2",
+    "uuid": "^8.3.2",
+    "youtube-music-api": "^1.0.6",
+    "yt-search": "^2.10.1"
   }
 }

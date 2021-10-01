@@ -80,7 +80,12 @@ class _ChatUIState extends State<ChatUI> {
       setState(() {});
     });
     setState(() {
-      _chatData = [];
+      _chatData = [
+        BotChat(
+            message: "Hello, I'm Zedd! Ask me about any song!",
+            sid: 'bid',
+            rid: 'usr')
+      ];
       // chatdata;
     });
   }
